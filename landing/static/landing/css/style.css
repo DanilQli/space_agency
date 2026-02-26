@@ -1,0 +1,283 @@
+:root {
+    --bg-primary:  #0B0D17;
+    --bg-secondary:#070810;
+    --accent-blue: #4361EE;  /* Вернули синий цвет */
+    --accent-red:  #E53935;  /* Для кнопок */
+    --text-muted:  rgba(255,255,255,0.6);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background: var(--bg-primary);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ═══════ NAVBAR ═══════ */
+.navbar {
+    background: rgba(11,13,23,.95) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding: 12px 0;
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-center .nav-link {
+    color: rgba(255,255,255,.75) !important;
+    font-weight: 500;
+    transition: color .25s;
+}
+.nav-center .nav-link:hover { color: #fff !important; }
+
+.offcanvas.bg-dark {
+    background: #0B0D17 !important;
+    border-right: 1px solid rgba(255,255,255,.1);
+}
+
+/* ═══════ HERO ═══════ */
+.hero-section {
+    padding: 130px 0 50px;
+    text-align: center;
+}
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.hero-section .lead {
+    color: var(--text-muted);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.75;
+    font-size: 1.05rem;
+}
+
+/* ═══════ ПРЕИМУЩЕСТВА + ЗЕМЛЯ ═══════ */
+.advantages-section { padding: 60px 0 80px; }
+
+.earth-img {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+
+.advantage-item { padding: 24px 10px; }
+.advantage-item i {
+    font-size: 2.8rem;
+    color: var(--accent-blue); /* СИНИЙ ЦВЕТ ИКОНОК */
+    display: block;
+    margin-bottom: 14px;
+}
+.advantage-item p {
+    color: rgba(255,255,255,.85);
+    font-size: .9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ═══════ ФОТОГРАФИИ ═══════ */
+.photos-section {
+    padding: 80px 0 90px;
+    background: var(--bg-secondary);
+}
+.photos-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* ОГРАНИЧИТЕЛЬ ШИРИНЫ СЛАЙДЕРА*/
+.slider-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Главный слайдер */
+.slider-for { margin-bottom: 20px; }
+.slider-for .slide-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* Нижняя карусель (миниатюры) */
+.slider-nav {
+    margin: 0 -8px;
+    padding: 0 40px;
+}
+.slider-nav .slide-item {
+    padding: 0 8px;
+}
+
+/* Квадратные фото в карусели */
+.slider-nav .slide-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: .5;
+    transition: opacity .3s, transform .2s;
+}
+
+.slider-nav .slick-current .slide-item img,
+.slider-nav .slide-item:hover img {
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+.slider-nav .slick-prev:hover,
+.slider-nav .slick-next:hover {
+    background: #C62828 !important;
+}
+
+/* Позиция стрелок */
+.slider-nav .slick-prev { left: -10px; } /* Чуть ближе */
+.slider-nav .slick-next { right: -10px; }
+
+/* Вид стрелки */
+.slider-nav .slick-prev:before,
+.slider-nav .slick-next:before {
+    font-family: sans-serif;
+    color: #fff !important;
+    font-size: 24px;
+    opacity: 1 !important;
+    line-height: 1;
+    display: block;
+    margin-top: -4px;
+}
+.slider-nav .slick-prev:before { content: "←"; }
+.slider-nav .slick-next:before { content: "→"; }
+
+
+/* ═══════ FOOTER ═══════ */
+footer { background: var(--bg-secondary); }
+
+
+/* ═══════ АДАПТИВНОСТЬ ═══════ */
+@media (max-width: 991.98px) {
+    .hero-section { padding-top: 100px; }
+    .hero-section h1 { font-size: 2.2rem; }
+
+    /* На планшете возвращаем ширину, чтобы не было слишком мелко */
+    .slider-wrapper { max-width: 100%; }
+}
+
+@media (max-width: 767.98px) {
+    .hero-section h1 { font-size: 1.8rem; }
+
+    /* Уменьшаем высоту на мобильном */
+    .slider-for .slide-item img { height: 240px; }
+    .earth-img { max-height: 280px; }
+
+    .slider-nav { padding: 0 30px; }
+}
+/* Главный слайдер */
+.slider-for { margin-bottom: 20px; }
+.slider-for .slide-item img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* Нижняя карусель (миниатюры) */
+.slider-nav {
+    margin: 0 -8px; /* Компенсация отступов */
+    padding: 0 40px; /* Место под стрелки по бокам */
+}
+.slider-nav .slide-item {
+    padding: 0 8px; /* Расстояние между картинками */
+}
+
+/* КВАДРАТНЫЕ ФОТО В КАРУСЕЛИ */
+.slider-nav .slide-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: .5;
+    transition: opacity .3s, transform .2s;
+}
+
+.slider-nav .slick-current .slide-item img,
+.slider-nav .slide-item:hover img {
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+/* ═══════ СТРЕЛКИ (только для нижней карусели) ═══════ */
+.slider-nav .slick-prev,
+.slider-nav .slick-next {
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background: var(--accent-red) !important; /* Красный круг */
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    transition: background .3s;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slider-nav .slick-prev:hover,
+.slider-nav .slick-next:hover {
+    background: #C62828 !important;
+}
+
+.slider-nav .slick-prev { left: -5px; }
+.slider-nav .slick-next { right: -5px; }
+
+/* "Нормальные" стрелки (FontAwesome коды или Unicode) */
+.slider-nav .slick-prev:before,
+.slider-nav .slick-next:before {
+    font-family: sans-serif; /* Обычный шрифт для стрелки */
+    color: #fff !important;
+    font-size: 24px;
+    opacity: 1 !important;
+    line-height: 1;
+    display: block;
+    margin-top: -4px; /* Чуть подравнять */
+}
+.slider-nav .slick-prev:before { content: "←"; }
+.slider-nav .slick-next:before { content: "→"; }
+
+/* Ограничитель ширины для иконок, чтобы они были равны картинке */
+.icons-wrapper {
+    max-width: 480px; /* Примерная ширина картинки */
+    width: 100%;
+}
+
+/* ═══════ FOOTER ═══════ */
+footer { background: var(--bg-secondary); }
+
+/* ═══════ АДАПТИВНОСТЬ ═══════ */
+@media (max-width: 991.98px) {
+    .hero-section { padding-top: 100px; }
+    .hero-section h1 { font-size: 2.2rem; }
+}
+
+@media (max-width: 767.98px) {
+    .hero-section h1 { font-size: 1.8rem; }
+    .slider-for .slide-item img { height: 240px; }
+    .earth-img { max-height: 280px; }
+
+    /* На мобильном чуть меньше иконок в ряд */
+    .slider-nav { padding: 0 30px; }
+}
